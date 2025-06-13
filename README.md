@@ -15,16 +15,6 @@ A modern, customizable Kanban board web application that helps you organize task
 - **Modern UI**: Clean, modern interface with smooth animations
 - **Secure**: HTML content is properly escaped to prevent XSS attacks
 
-## Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/customizable-kanban-board.git
-   ```
-
-2. Open `index.html` in your web browser
-   - No build process or dependencies required!
-   - Works right out of the box
 
 ## How to Use
 
