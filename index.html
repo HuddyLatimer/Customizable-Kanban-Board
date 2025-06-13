@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customizable Kanban Board</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Kanban Board</h1>
+        <button id="addTaskBtn" class="add-task-btn">+ Add Task</button>
+    </div>
+
+    <div class="kanban-board">
+        <div class="column" id="todo" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>To Do</h2>
+            <div class="task-container"></div>
+        </div>
+        <div class="column" id="in-progress" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>In Progress</h2>
+            <div class="task-container"></div>
+        </div>
+        <div class="column" id="done" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h2>Done</h2>
+            <div class="task-container"></div>
+        </div>
+    </div>
+
+    <!-- Task Form Modal -->
+    <div id="taskModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add New Task</h2>
+            <form id="taskForm" novalidate>
+                <div class="form-group">
+                    <input type="text" id="taskTitle" placeholder="Task Title" required>
+                    <div class="error-message" id="titleError"></div>
+                </div>
+                <div class="form-group">
+                    <textarea id="taskDescription" placeholder="Task Description"></textarea>
+                    <div class="error-message" id="descriptionError"></div>
+                </div>
+                <div class="color-labels">
+                    <h3>Select Label:</h3>
+                    <div class="label-options">
+                        <label class="color-label" data-color="red">
+                            <input type="radio" name="color" value="red">
+                            <span class="label-display red"></span>
+                        </label>
+                        <label class="color-label" data-color="green">
+                            <input type="radio" name="color" value="green">
+                            <span class="label-display green"></span>
+                        </label>
+                        <label class="color-label" data-color="blue">
+                            <input type="radio" name="color" value="blue">
+                            <span class="label-display blue"></span>
+                        </label>
+                        <label class="color-label" data-color="yellow">
+                            <input type="radio" name="color" value="yellow">
+                            <span class="label-display yellow"></span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="colorError"></div>
+                </div>
+                <div class="modal-buttons">
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="closeModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="confirmModal" class="modal confirm-modal">
+        <div class="modal-content confirm-content">
+            <h2>Delete Task</h2>
+            <p>Are you sure you want to delete this task?</p>
+            <p class="task-preview"></p>
+            <div class="modal-buttons">
+                <button type="button" class="delete-btn" onclick="confirmDelete()">Delete</button>
+                <button type="button" class="cancel-btn" onclick="cancelDelete()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
